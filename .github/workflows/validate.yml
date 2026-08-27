@@ -1,0 +1,28 @@
+# Every claim in this database is meant to be checkable, so the checks run on
+# every change rather than on a release. A pull request that fails here is
+# telling a contributor something specific and fixable, which is the point.
+
+name: validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run validate
+      # The build is a second gate: it refuses malformed pages, resolves the
+      # cross-references, and proves the site still generates.
+      - run: npm run build
+      # The drift check runs where the consuming application lives, since that
+      # is where the catalogue dump comes from. Nothing to do here until a dump
+      # is committed or fetched.

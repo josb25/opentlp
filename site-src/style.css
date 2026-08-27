@@ -1,0 +1,545 @@
+/*
+ * OpenTLP.
+ *
+ * A reference table people will read at a workbench with a printer in bits in
+ * front of them, so: dense, legible, fast, and readable on a phone. No web
+ * fonts — the first paint should not wait on a network round trip.
+ */
+
+:root {
+    --bg: #ffffff;
+    --surface: #f7f7f5;
+    --line: #dedcd6;
+    --text: #1b1b19;
+    --muted: #6b6862;
+    --link: #0f5c9c;
+    --accent: #b4530a;
+
+    --ok: #1f7a3d;
+    --partial: #a8730b;
+    --bad: #a52222;
+    --unknown: #9a978f;
+
+    --radius: 6px;
+    --mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
+    --sans: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #16171a;
+        --surface: #1e2024;
+        --line: #33363c;
+        --text: #e6e5e1;
+        --muted: #9b9891;
+        --link: #74b4ee;
+        --accent: #e0954c;
+
+        --ok: #4cc074;
+        --partial: #d7a53a;
+        --bad: #e26b6b;
+        --unknown: #6f6d68;
+    }
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.6 var(--sans);
+    -webkit-text-size-adjust: 100%;
+}
+
+a { color: var(--link); }
+a:hover { text-decoration-thickness: 2px; }
+
+code {
+    font: 0.875em/1.4 var(--mono);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 0.05em 0.35em;
+    overflow-wrap: anywhere;
+}
+
+/* ---- chrome ---- */
+
+header.site {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    align-items: baseline;
+    padding: 1rem clamp(1rem, 4vw, 2.5rem);
+    border-bottom: 1px solid var(--line);
+}
+
+.wordmark {
+    font-weight: 700;
+    font-size: 1.15rem;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    text-decoration: none;
+}
+
+header.site nav {
+    display: flex;
+    gap: 1.25rem;
+    font-size: 0.9rem;
+}
+
+header.site nav a { text-decoration: none; }
+header.site nav a:hover { text-decoration: underline; }
+header.site nav a[aria-current="page"] { color: var(--text); font-weight: 600; }
+
+main {
+    max-width: 68rem;
+    margin: 0 auto;
+    padding: 2rem clamp(1rem, 4vw, 2.5rem) 4rem;
+}
+
+footer.site {
+    border-top: 1px solid var(--line);
+    padding: 1.5rem clamp(1rem, 4vw, 2.5rem);
+    color: var(--muted);
+    font-size: 0.85rem;
+}
+
+footer.site p { max-width: 68rem; margin: 0 auto; }
+
+/* ---- headings ---- */
+
+h1 { font-size: clamp(1.6rem, 4vw, 2.1rem); line-height: 1.2; letter-spacing: -0.02em; margin: 0 0 0.5rem; }
+h2 { font-size: 1.15rem; margin: 2.5rem 0 0.75rem; letter-spacing: -0.01em; }
+h3 { font-size: 0.95rem; margin: 1.5rem 0 0.5rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+
+.lede { color: var(--muted); max-width: 42rem; }
+.muted { color: var(--muted); }
+.visually-hidden {
+    position: absolute; width: 1px; height: 1px;
+    clip-path: inset(50%); overflow: hidden; white-space: nowrap;
+}
+
+/* ---- table of hardware ---- */
+
+.hero { margin-bottom: 1.5rem; }
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.search input {
+    width: 100%;
+    padding: 0.6rem 0.8rem;
+    font: inherit;
+    color: var(--text);
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+}
+
+.search input:focus-visible {
+    outline: 2px solid var(--link);
+    outline-offset: -1px;
+}
+
+.chips { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+
+.chip {
+    font: inherit;
+    font-size: 0.85rem;
+    padding: 0.25rem 0.7rem;
+    color: var(--muted);
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    cursor: pointer;
+}
+
+.chip code { background: none; border: none; padding: 0; }
+.chip:hover { color: var(--text); border-color: var(--muted); }
+.chip.is-on { color: var(--bg); background: var(--text); border-color: var(--text); }
+.chip.is-on code { color: var(--bg); }
+
+table.toh {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+table.toh th {
+    text-align: left;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    font-weight: 600;
+    padding: 0.5rem 0.6rem;
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 0;
+    background: var(--bg);
+}
+
+table.toh td {
+    padding: 0.6rem;
+    border-bottom: 1px solid var(--line);
+    vertical-align: baseline;
+}
+
+table.toh tbody tr:hover { background: var(--surface); }
+
+.toh .brand { color: var(--muted); white-space: nowrap; }
+.toh .model a { font-weight: 600; text-decoration: none; }
+.toh .model a:hover { text-decoration: underline; }
+.toh .num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.toh .status { width: 1.5rem; text-align: center; }
+.unit { color: var(--muted); font-size: 0.8em; margin-left: 0.15em; }
+
+.rebadge {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--accent);
+    border: 1px solid currentColor;
+    border-radius: 3px;
+    padding: 0 0.3em;
+    white-space: nowrap;
+}
+
+.count { color: var(--muted); font-size: 0.85rem; margin-top: 0.75rem; }
+
+/* Support and confidence indicators, shared by the table and device pages. */
+
+.level {
+    display: inline-block;
+    font-size: 0.75rem;
+    padding: 0.1rem 0.45rem;
+    border-radius: 999px;
+    border: 1px solid currentColor;
+    white-space: nowrap;
+}
+
+.level-works { color: var(--ok); }
+.level-partial { color: var(--partial); }
+.level-broken { color: var(--bad); }
+.level-listed, .level-planned, .level-none { color: var(--muted); }
+
+.dot {
+    display: inline-block;
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 50%;
+    background: var(--unknown);
+    vertical-align: middle;
+}
+
+.dot-verified { background: var(--ok); }
+.dot-reported { background: var(--partial); }
+
+.legend {
+    margin-top: 3rem;
+    padding: 1.25rem;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    font-size: 0.875rem;
+}
+
+.legend h2 { margin-top: 0; font-size: 0.95rem; }
+.legend dl { display: grid; grid-template-columns: auto 1fr; gap: 0.35rem 1rem; margin: 0 0 1rem; }
+.legend dt { white-space: nowrap; font-weight: 600; }
+.legend dd { margin: 0; color: var(--muted); }
+.legend p { margin: 0; color: var(--muted); }
+
+/* ---- artwork ---- */
+
+/*
+ * Artwork carries its own colours — a white shell is white in both themes,
+ * because that is what the object looks like. The drawings are inlined on
+ * device pages so a colourway can recolour them through custom properties;
+ * in the table they are plain <img>, which falls back to the file's defaults.
+ */
+figure.artwork {
+    margin: 1.5rem 0 2rem;
+    padding: 1.5rem;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    text-align: center;
+    color: var(--text);
+}
+
+figure.artwork svg {
+    width: 100%;
+    max-width: 15rem;
+    height: auto;
+}
+
+figure.artwork .art-stage { display: block; }
+
+.colourways {
+    display: flex;
+    justify-content: center;
+    gap: 0.4rem;
+    margin-top: 1rem;
+}
+
+.swatch {
+    display: flex;
+    padding: 0;
+    width: 2.75rem;
+    height: 1.4rem;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    cursor: pointer;
+    background: none;
+}
+
+.swatch span { flex: 1; }
+.swatch:hover { border-color: var(--muted); }
+.swatch.is-on { outline: 2px solid var(--text); outline-offset: 1px; }
+
+figure.artwork figcaption {
+    margin-top: 0.75rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+}
+
+.toh .art { width: 2.5rem; padding-right: 0; }
+
+.toh .art img {
+    display: block;
+    width: 2.25rem;
+    height: 2.25rem;
+    object-fit: contain;
+}
+
+/* ---- device page ---- */
+
+.device .summary { font-size: 1.05rem; color: var(--muted); max-width: 42rem; margin-top: 0; }
+
+.status {
+    padding: 0.6rem 0.85rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--unknown);
+    background: var(--surface);
+    font-size: 0.875rem;
+}
+
+.status-verified { border-left-color: var(--ok); }
+.status-reported { border-left-color: var(--partial); }
+
+table.spec, table.matrix {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+table.spec th, table.matrix th {
+    text-align: left;
+    font-weight: 600;
+    color: var(--muted);
+    padding: 0.45rem 1rem 0.45rem 0;
+    vertical-align: baseline;
+    white-space: nowrap;
+    width: 1%;
+}
+
+table.spec td, table.matrix td {
+    padding: 0.45rem 0;
+    border-bottom: 1px solid var(--line);
+    vertical-align: baseline;
+}
+
+table.spec tr:first-child th, table.spec tr:first-child td { border-top: 1px solid var(--line); }
+table.matrix td:first-of-type { width: 1%; padding-right: 1rem; }
+
+.empty { color: var(--muted); font-size: 0.9rem; }
+
+ul.links, ul.sources { list-style: none; padding: 0; margin: 0; font-size: 0.9rem; }
+ul.links li, ul.sources li { padding: 0.6rem 0; border-bottom: 1px solid var(--line); }
+
+.kind {
+    display: inline-block;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    padding: 0.05rem 0.35rem;
+    margin-right: 0.4rem;
+}
+
+.kind-protocol-capture, .kind-vendor-doc { color: var(--ok); border-color: currentColor; }
+.kind-retailer-listing, .kind-catalogue { color: var(--unknown); }
+
+.licence {
+    font: 0.75rem var(--mono);
+    color: var(--muted);
+    margin-left: 0.4rem;
+}
+
+.note { margin: 0.25rem 0 0; color: var(--muted); font-size: 0.85rem; }
+
+.edit { margin-top: 3rem; font-size: 0.85rem; }
+
+/* ---- prose, shared by device bodies and the about page ---- */
+
+.prose { max-width: 42rem; }
+.prose h2 { border-top: 1px solid var(--line); padding-top: 1.5rem; }
+.prose h3 { text-transform: none; letter-spacing: 0; color: var(--text); font-size: 1rem; }
+.prose blockquote {
+    margin: 1.25rem 0;
+    padding: 0.1rem 1rem;
+    border-left: 3px solid var(--accent);
+    color: var(--muted);
+}
+
+.prose table {
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    margin: 1rem 0;
+    width: 100%;
+}
+
+.prose th, .prose td {
+    text-align: left;
+    padding: 0.4rem 1rem 0.4rem 0;
+    border-bottom: 1px solid var(--line);
+    vertical-align: baseline;
+}
+
+.prose th { color: var(--muted); font-weight: 600; }
+.prose li { margin: 0.25rem 0; }
+
+/* ---- narrow screens ---- */
+
+@media (max-width: 40rem) {
+    table.toh { font-size: 0.85rem; }
+    .toh .art, .toh thead th:nth-child(2),
+    .toh .family, .toh thead th:nth-child(4),
+    .toh tbody td:nth-child(6), .toh thead th:nth-child(6),
+    .toh .support, .toh thead th:nth-child(7) { display: none; }
+    .toh .brand { white-space: normal; }
+    .toh .model { overflow-wrap: anywhere; }
+    table.toh td, table.toh th { padding: 0.5rem 0.4rem; }
+    .legend dl { grid-template-columns: 1fr; gap: 0.15rem; }
+    .legend dd { margin-bottom: 0.5rem; }
+}
+
+ul.tags {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    padding: 0;
+    margin: 0.75rem 0 0;
+}
+
+ul.tags li {
+    font-size: 0.8rem;
+    padding: 0.15rem 0.55rem;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: var(--surface);
+}
+
+/* ---- indicators ---- */
+
+/*
+ * The lamp is drawn rather than named because a reader is matching it against
+ * a light in front of them, and "green" covers a wide range.
+ */
+.lamp {
+    display: inline-block;
+    width: 0.7rem;
+    height: 0.7rem;
+    margin-right: 0.5rem;
+    border-radius: 50%;
+    background: var(--lamp, var(--unknown));
+    box-shadow: 0 0 0.35rem var(--lamp, transparent);
+    vertical-align: baseline;
+}
+
+.lamp-flashing { animation: lamp-blink 1.1s steps(1, end) infinite; }
+.lamp-pulsing { animation: lamp-fade 1.8s ease-in-out infinite; }
+
+@keyframes lamp-blink { 0%, 49% { opacity: 1 } 50%, 100% { opacity: 0.15 } }
+@keyframes lamp-fade { 0%, 100% { opacity: 1 } 50% { opacity: 0.25 } }
+
+/* A flashing dot is exactly the sort of thing this preference exists for. */
+@media (prefers-reduced-motion: reduce) {
+    .lamp-flashing, .lamp-pulsing { animation: none; opacity: 0.6; }
+}
+
+table.lamps th { font-weight: 500; color: var(--text); }
+
+/* ---- mechanism actions ---- */
+
+.actions {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.actions .lede { flex-basis: 100%; margin: 0 0 0.25rem; font-size: 0.85rem; }
+
+.action {
+    font: inherit;
+    font-size: 0.85rem;
+    padding: 0.3rem 0.75rem;
+    color: var(--text);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    cursor: pointer;
+}
+
+.action:hover { border-color: var(--muted); }
+.action .muted { margin-left: 0.4rem; font-size: 0.8em; }
+
+/* ---- absent specs ---- */
+
+/*
+ * Deliberately quiet. The row exists so a reader can see the gap and a
+ * contributor can fill it; it should not compete with the values around it.
+ */
+.unrecorded {
+    color: var(--muted);
+    font-style: italic;
+    opacity: 0.8;
+}
+
+.lampbtns {
+    display: flex;
+    justify-content: center;
+    gap: 0.4rem;
+    margin-top: 0.6rem;
+}
+
+.lampbtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.7rem;
+    height: 1.7rem;
+    padding: 0;
+    background: none;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.lampbtn:hover { border-color: var(--muted); }
+.lampbtn.is-on { outline: 2px solid var(--text); outline-offset: 1px; }
+.lampbtn .lamp { margin: 0; }
