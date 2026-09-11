@@ -39,9 +39,14 @@ sources:
     url: https://github.com/josb25/BleWebler2/commit/c029b12
     licence: MIT
     note: Independent TypeScript implementation and protocol-level tests.
+  - kind: oss-project
+    url: https://github.com/Dejniel/TiMini-Print/tree/a9a456c4243132bad52c500e39bdec221fe98db9
+    licence: Apache-2.0
+    note: Source for the exact T02E, Q02E and C02E Bluetooth-name aliases.
 ---
 
-BleWebler2 currently assigns this sequence to M03, T02, M200, M221, M250 and
-M260. M220 is not included because captured documentation groups that retail
+BleWebler2 currently assigns this sequence to M03, T02 (including exact aliases
+T02E, Q02E and C02E), M200, M221, M250 and M260. M220 is not included because
+captured documentation groups that retail
 model with the M110/M120 command family. The public width claims remain
 unverified on the individual model pages.
