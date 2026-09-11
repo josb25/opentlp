@@ -5,7 +5,7 @@ model: M110
 summary: 48 mm label printer on Phomemo's ESC/POS-derived command set.
 
 protocol:
-  family: phomemo
+  family: phomemo-m110
 
 print:
   dpi: 203
@@ -14,6 +14,9 @@ print:
 
 connectivity:
   ble:
+    service_uuid: 0000ff00-0000-1000-8000-00805f9b34fb
+    write_uuid: 0000ff02-0000-1000-8000-00805f9b34fb
+    notify_uuid: 0000ff03-0000-1000-8000-00805f9b34fb
     name_pattern: "M110"
     name_examples: [M110]
 
@@ -21,10 +24,17 @@ support:
   phomemo-tools:
     level: listed
     notes: Named in the project's supported-model list.
+  blewebler2:
+    level: listed
+    notes: Experimental family driver added in ab8fbb7; awaiting hardware validation.
 
 status: reported
 
 sources:
+  - kind: oss-project
+    url: https://github.com/josb25/BleWebler2/commit/ab8fbb7
+    licence: MIT
+    note: Implements the captured 43-byte M110 protocol profile.
   - kind: oss-project
     url: https://github.com/vivier/phomemo-tools
     licence: GPL-3.0
@@ -48,7 +58,7 @@ documentation:
 
 ## Protocol notes
 
-The command set is documented on the [phomemo family page](phomemo.html). This
+The command set is documented on the [M110 family page](phomemo-m110.html). This
 model supports the density command, which not all members of the family do.
 
 ## Not yet recorded

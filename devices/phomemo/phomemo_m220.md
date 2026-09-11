@@ -4,7 +4,7 @@ brand: Phomemo
 model: M220
 
 protocol:
-  family: phomemo
+  family: phomemo-m110
 
 print:
   dpi: 203
@@ -12,16 +12,26 @@ print:
 
 connectivity:
   ble:
+    service_uuid: 0000ff00-0000-1000-8000-00805f9b34fb
+    write_uuid: 0000ff02-0000-1000-8000-00805f9b34fb
+    notify_uuid: 0000ff03-0000-1000-8000-00805f9b34fb
     name_pattern: "M220"
 
 support:
   phomemo-tools:
     level: listed
     notes: Named in the project's supported-model list.
+  blewebler2:
+    level: listed
+    notes: Experimental family driver added in ab8fbb7; awaiting hardware validation.
 
 status: unverified
 
 sources:
+  - kind: oss-project
+    url: https://github.com/josb25/BleWebler2/commit/ab8fbb7
+    licence: MIT
+    note: Implements the documented command family with a 576-dot experimental profile.
   - kind: oss-project
     url: https://github.com/vivier/phomemo-tools
     licence: GPL-3.0
