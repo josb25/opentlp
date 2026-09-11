@@ -35,8 +35,7 @@ sources:
     note: Primary public P12 implementation for setup exchanges, response pacing and print flow.
   - kind: oss-project
     url: https://github.com/transcriptionstream/phomymo/tree/1f58d3f0e7f941b9143277cda828380149e56855
-    licence: MIT
-    note: Corroborates the protocol and associates A30 with a 15-byte/120-dot row.
+    note: Licence metadata conflicts (README MIT, package.json ISC, no licence file); used only to corroborate protocol facts and the A30 row width.
   - kind: oss-project
     url: https://github.com/josb25/BleWebler2/commit/56a4106
     licence: MIT
@@ -49,4 +48,3 @@ sources:
 BLE service. A name and service alone therefore cannot identify the protocol.
 BleWebler2 exposes this family in its manual driver selector and refuses to
 guess when automatic matching is ambiguous.
-

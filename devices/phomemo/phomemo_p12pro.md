@@ -29,8 +29,7 @@ status: unverified
 sources:
   - kind: oss-project
     url: https://github.com/transcriptionstream/phomymo/tree/1f58d3f0e7f941b9143277cda828380149e56855
-    licence: MIT
-    note: Lists P12 Pro under the P12 protocol and 12-byte/96-dot geometry.
+    note: Licence metadata conflicts (README MIT, package.json ISC, no licence file); used only for P12 Pro family and geometry facts.
   - kind: oss-project
     url: https://github.com/josb25/BleWebler2/commit/56a4106
     licence: MIT
@@ -39,4 +38,3 @@ sources:
 
 The protocol association and geometry come from public implementations; no
 physical P12 Pro report is recorded yet.
-

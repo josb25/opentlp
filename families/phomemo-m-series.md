@@ -34,8 +34,7 @@ status: unverified
 sources:
   - kind: oss-project
     url: https://github.com/transcriptionstream/phomymo/tree/1f58d3f0e7f941b9143277cda828380149e56855
-    licence: MIT
-    note: Primary public implementation for model grouping, command sequence and BLE pacing.
+    note: Licence metadata conflicts (README MIT, package.json ISC, no licence file); used only for model grouping, command sequence and BLE pacing facts.
   - kind: oss-project
     url: https://github.com/josb25/BleWebler2/commit/c029b12
     licence: MIT
@@ -46,4 +45,3 @@ BleWebler2 currently assigns this sequence to M03, T02, M200, M221, M250 and
 M260. M220 is not included because captured documentation groups that retail
 model with the M110/M120 command family. The public width claims remain
 unverified on the individual model pages.
-

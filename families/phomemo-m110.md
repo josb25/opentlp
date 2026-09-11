@@ -40,8 +40,7 @@ sources:
       records the observable command bytes and ranges, not implementation code.
   - kind: oss-project
     url: https://github.com/transcriptionstream/phomymo/tree/1f58d3f0e7f941b9143277cda828380149e56855
-    licence: MIT
-    note: Corroborates the BLE transport layout and job sequence.
+    note: Licence metadata conflicts (README MIT, package.json ISC, no licence file); used only to corroborate BLE transport and job-sequence facts.
   - kind: oss-project
     url: https://github.com/josb25/BleWebler2/commit/ab8fbb7
     licence: MIT
@@ -58,4 +57,3 @@ BleWebler2, but that geometry has no hardware confirmation here.
 Those uncertainties are attached to the model pages and are why BleWebler2 is
 listed as experimental rather than working. They do not change the captured
 command family.
-

@@ -30,8 +30,7 @@ status: unverified
 sources:
   - kind: oss-project
     url: https://github.com/transcriptionstream/phomymo/tree/1f58d3f0e7f941b9143277cda828380149e56855
-    licence: MIT
-    note: Lists M110S as a 48-byte/384-dot member and records its Q199E advertising pattern.
+    note: Licence metadata conflicts (README MIT, package.json ISC, no licence file); used only for M110S geometry and Q199E advertising facts.
   - kind: oss-project
     url: https://github.com/josb25/BleWebler2/commit/ab8fbb7
     licence: MIT
@@ -41,4 +40,3 @@ sources:
 The M110S association and geometry come from a public implementation, not a
 capture or local hardware. Its Bluetooth name may begin with `Q199E` rather
 than the retail model number.
-

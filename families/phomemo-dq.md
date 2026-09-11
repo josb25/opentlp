@@ -31,11 +31,11 @@ status: unverified
 sources:
   - kind: oss-project
     url: https://github.com/transcriptionstream/phomymo/tree/1f58d3f0e7f941b9143277cda828380149e56855
-    licence: MIT
     note: >-
       Primary public implementation used for the GATT layout, model grouping,
-      commands, rotation, raw raster format and 128-byte pacing. MIT is stated
-      in the project's README; OpenTLP records protocol facts only.
+      commands, rotation, raw raster format and 128-byte pacing. Licence
+      metadata conflicts (README MIT, package.json ISC, no licence file), so
+      OpenTLP records protocol facts only.
   - kind: oss-project
     url: https://github.com/josb25/BleWebler2/commit/e76a0e2
     licence: MIT
@@ -61,4 +61,3 @@ and must not be selected merely because the product says Phomemo.
 No physical printer report or capture has yet verified this entry. The command
 stream is implemented and tested against public protocol facts, so project
 support is `listed`, not `works`.
-

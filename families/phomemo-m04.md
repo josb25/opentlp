@@ -35,8 +35,7 @@ status: unverified
 sources:
   - kind: oss-project
     url: https://github.com/transcriptionstream/phomymo/tree/1f58d3f0e7f941b9143277cda828380149e56855
-    licence: MIT
-    note: Public implementation and hardware-test report for the setup sequence, raster widths, BLE pacing and feed flow.
+    note: Licence metadata conflicts (README MIT, package.json ISC, no licence file); used only for setup, raster-width, pacing, feed and hardware-test facts.
   - kind: oss-project
     url: https://github.com/josb25/BleWebler2/commit/1f5eb8b
     licence: MIT
@@ -50,4 +49,3 @@ of the nominal roll width.
 
 BleWebler2 keeps this separate from the general Phomemo M-series driver because
 the setup opcodes, density scale, chunk size and feed sequence differ.
-

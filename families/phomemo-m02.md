@@ -38,8 +38,7 @@ sources:
       records wire facts only and does not reproduce GPL implementation code.
   - kind: oss-project
     url: https://github.com/transcriptionstream/phomymo/tree/1f58d3f0e7f941b9143277cda828380149e56855
-    licence: MIT
-    note: Documents the BLE layout, wake prefix, heat setup, pacing and model variants.
+    note: Licence metadata conflicts (README MIT, package.json ISC, no licence file); used only for BLE layout, wake prefix, heat setup, pacing and model facts.
   - kind: oss-project
     url: https://github.com/josb25/BleWebler2/commit/463c704
     licence: MIT
@@ -50,4 +49,3 @@ M02, M02S and M02X use 48-byte/384-dot rows in the current public model
 tables. M02 Pro uses a 78-byte row at 300 dpi. One source describes the Pro as
 626 dots, but an integral 78-byte row carries 624 dots; hardware confirmation
 is needed to explain the discrepancy.
-

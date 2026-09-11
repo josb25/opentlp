@@ -38,8 +38,7 @@ sources:
     note: The comparison table gives M04S paper sizes, resolution, speed, battery and PC support.
   - kind: oss-project
     url: https://github.com/transcriptionstream/phomymo/tree/1f58d3f0e7f941b9143277cda828380149e56855
-    licence: MIT
-    note: Provides the captured protocol and records physical-printer testing.
+    note: Licence metadata conflicts (README MIT, package.json ISC, no licence file); used only for protocol and hardware-test facts.
 ---
 
 BleWebler2 lists this family as experimental. The underlying public protocol
