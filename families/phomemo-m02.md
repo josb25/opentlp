@@ -43,6 +43,10 @@ sources:
     url: https://github.com/josb25/BleWebler2/commit/463c704
     licence: MIT
     note: Independent TypeScript implementation and protocol-level tests.
+  - kind: oss-project
+    url: https://github.com/Dejniel/TiMini-Print/tree/a9a456c4243132bad52c500e39bdec221fe98db9
+    licence: Apache-2.0
+    note: Source for exact advertising-name mappings across the four M02 profiles.
 ---
 
 M02, M02S and M02X use 48-byte/384-dot rows in the current public model
