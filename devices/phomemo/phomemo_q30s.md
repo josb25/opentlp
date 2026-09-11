@@ -4,18 +4,30 @@ brand: Phomemo
 model: Q30S
 
 protocol:
-  family: phomemo
+  family: phomemo-dq
 
 print:
   colour: monochrome
 
 connectivity:
   ble:
+    service_uuid: 0000ff00-0000-1000-8000-00805f9b34fb
+    write_uuid: 0000ff02-0000-1000-8000-00805f9b34fb
+    notify_uuid: 0000ff03-0000-1000-8000-00805f9b34fb
     name_pattern: "Q30S"
+
+support:
+  blewebler2:
+    level: listed
+    notes: Experimental D/Q driver added in e76a0e2; awaiting hardware validation.
 
 status: unverified
 
 sources:
+  - kind: oss-project
+    url: https://github.com/josb25/BleWebler2/commit/e76a0e2
+    licence: MIT
+    note: Implements this model's D/Q protocol profile.
   - kind: oss-project
     url: https://github.com/transcriptionstream/phomymo
     note: >-

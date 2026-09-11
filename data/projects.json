@@ -11,6 +11,11 @@
     "url": "https://github.com/rbaron/catprinter",
     "licence": "MIT"
   },
+  "blewebler2": {
+    "name": "BleWebler2",
+    "url": "https://github.com/josb25/BleWebler2",
+    "licence": "MIT"
+  },
   "niimblue": {
     "name": "NiimBlue",
     "url": "https://github.com/MultiMote/niimblue",

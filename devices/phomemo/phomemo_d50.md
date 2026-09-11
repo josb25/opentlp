@@ -1,14 +1,14 @@
 ---
-id: phomemo_d110
+id: phomemo_d50
 brand: Phomemo
-model: D110
+model: D50
 
 protocol:
   family: phomemo-dq
 
 print:
-  width_dots: 96
-  width_mm: 12
+  width_dots: 192
+  width_mm: 24
   dpi: 203
   colour: monochrome
 
@@ -17,7 +17,7 @@ connectivity:
     service_uuid: 0000ff00-0000-1000-8000-00805f9b34fb
     write_uuid: 0000ff02-0000-1000-8000-00805f9b34fb
     notify_uuid: 0000ff03-0000-1000-8000-00805f9b34fb
-    name_pattern: "D110"
+    name_pattern: "D50"
 
 support:
   blewebler2:
@@ -31,13 +31,12 @@ sources:
     url: https://github.com/josb25/BleWebler2/commit/e76a0e2
     licence: MIT
     note: Implements this model's D/Q protocol profile.
-  - kind: catalogue
-    note: >-
-      Transcribed from a driver's model table; specifications not confirmed against hardware.
+  - kind: vendor-doc
+    url: https://phomemo.com/products/d50-labels-collection
+    note: Documents 16, 20 and 24 mm media for D50.
 ---
 
-Catalogued from a driver's model table. The printhead width is what that table
-records; the mechanism, media handling and status reporting are unrecorded.
+The 192-dot width is inferred from the largest documented 24 mm medium at
+203 dpi. This must be checked against a physical printer; it is not marked
+verified or working.
 
-Not to be confused with the [NIIMBOT D110](niimbot_d110.html), a different
-printer on a different protocol that shares a model number.
