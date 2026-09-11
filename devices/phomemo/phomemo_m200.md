@@ -4,7 +4,7 @@ brand: Phomemo
 model: M200
 
 protocol:
-  family: phomemo
+  family: phomemo-m-series
 
 print:
   dpi: 203
@@ -12,11 +12,23 @@ print:
 
 connectivity:
   ble:
+    service_uuid: 0000ff00-0000-1000-8000-00805f9b34fb
+    write_uuid: 0000ff02-0000-1000-8000-00805f9b34fb
+    notify_uuid: 0000ff03-0000-1000-8000-00805f9b34fb
     name_pattern: "M200"
+
+support:
+  blewebler2:
+    level: listed
+    notes: Experimental general M-series driver added in c029b12.
 
 status: unverified
 
 sources:
+  - kind: oss-project
+    url: https://github.com/josb25/BleWebler2/commit/c029b12
+    licence: MIT
+    note: Implements an experimental 608-dot profile.
   - kind: oss-project
     url: https://github.com/vivier/phomemo-tools
     licence: GPL-3.0

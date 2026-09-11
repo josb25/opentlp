@@ -4,18 +4,30 @@ brand: Phomemo
 model: M260
 
 protocol:
-  family: phomemo
+  family: phomemo-m-series
 
 print:
   colour: monochrome
 
 connectivity:
   ble:
+    service_uuid: 0000ff00-0000-1000-8000-00805f9b34fb
+    write_uuid: 0000ff02-0000-1000-8000-00805f9b34fb
+    notify_uuid: 0000ff03-0000-1000-8000-00805f9b34fb
     name_pattern: "M260"
+
+support:
+  blewebler2:
+    level: listed
+    notes: Experimental general M-series driver added in c029b12.
 
 status: unverified
 
 sources:
+  - kind: oss-project
+    url: https://github.com/josb25/BleWebler2/commit/c029b12
+    licence: MIT
+    note: Implements an experimental 576-dot profile.
   - kind: oss-project
     url: https://github.com/transcriptionstream/phomymo
     note: >-
