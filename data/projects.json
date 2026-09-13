@@ -31,6 +31,11 @@
     "url": "https://github.com/vivier/phomemo-tools",
     "licence": "GPL-3.0"
   },
+  "peripage-python": {
+    "name": "peripage-python",
+    "url": "https://github.com/bitrate16/peripage-python",
+    "licence": "GPL-3.0"
+  },
   "timini-print": {
     "name": "TiMini-Print",
     "url": "https://github.com/Dejniel/TiMini-Print",
